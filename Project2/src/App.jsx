@@ -1,32 +1,25 @@
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+
 import './App.css'
-import Counter from './assets/Component/Counter'
+
 function App() {
+ 
+ const[color,setColor] = useState("grey");
 
-  var [count, setCount] = useState(0);
+ function changeColor(color){
+    setColor(color)
+ }
 
-  const handleInc =() => {
-
-    setCount(count +1)
-
-  }
-  const handleDec =() => {
-
-    if(count <=0) return
-
-    setCount(count-1)
-
-
-  }
+ document.body.style.background = color
 
   return (
     <>
-      <h1> Count : {count}</h1>
-      <div>
-        <button onClick={handleInc}>Increase</button>
-        <button onClick={handleDec}> Decrease</button>
+  
+      <div className="bgchanger" style={{display:"flex", gap:"15px"}}>
+        <div className="red" ><button onClick={()=>{changeColor("red")}} style={{backgroundColor:"red"}}>Red</button></div>
+        <div className="blue"><button onClick={()=>{changeColor("blue")}} style={{backgroundColor:"blue"}}>blue</button></div>
+        <div className="purple"><button onClick={()=>{changeColor("purple")}} style={{backgroundColor:"purple"}}>purple</button></div>
+        <div className="orange"><button onClick={()=>{changeColor("orange")}} style={{backgroundColor:"orange"}}>orange</button></div>
       </div>
        
     </>
